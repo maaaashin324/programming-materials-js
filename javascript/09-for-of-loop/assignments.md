@@ -50,3 +50,15 @@
    const result = averageNumber(numbers);
    console.log(result); // 3
    ```
+
+5. `pickStringFromArray` という関数を作りましょう。
+   - 第一引数は配列とします。
+   - 配列の要素のうち、文字列のものだけを抽出して新しい配列を作成して、その新しい配列を返してください。
+   - 第一引数として渡す配列の内容は変更してはいけません。
+
+   ```js
+   const testArray = ["Satoshi", 24, true, "Hello"];
+   const result = pickStringFromArray(testArray);
+   console.log(result); // ["Satoshi", "Hello"]
+   console.log(testArray); // ["Satoshi", 24, true, "Hello"]
+   ```
