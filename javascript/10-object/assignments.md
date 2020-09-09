@@ -22,7 +22,15 @@
 2. 以下のオブジェクトのうち、ブランドをコンソールに表示するようにコードを書いてください。
 
    ```js
-   const shoe = { name: "Air Force", brand: "NIKE" }
+   const shoe = { name: "Air Force", brand: "NIKE" };
+   console.log(???)
+   ```
+
+3. 以下のオブジェクトに対して、与えられた変数 key を使って name の value をコンソールに表示してください。
+
+   ```js
+   const key = "name";
+   const shoe = { name: "Air Force", brand: "NIKE" };
    console.log(???)
    ```
 
@@ -40,6 +48,15 @@
 
    ```js
    const app = { name: "Original one", times: 500 };
+   // オブジェクトを更新してから
+   console.log(app);
+   ```
+
+3. 以下のオブジェクトのうち、アプリの名前を Twitter に、使用回数を 1000 に変更して、オブジェクト全体をコンソールに表示してください。ただし、変数 key を使って使用回数を変更してください。
+
+   ```js
+   const app = { name: "Original one", times: 500 };
+   const key = "times";
    // オブジェクトを更新してから
    console.log(app);
    ```
@@ -71,5 +88,15 @@
    ```js
    const person = { name: "Satoshi", age: 24 };
    const result = changeAge(person, 25);
+   console.log(result); // { name: "Satoshi", age: 25 }
+   ```
+
+4. `changeValue` という関数を作成しましょう。
+   - 第一引数は人を表すオブジェクト、第二引数は変更したい key、第三引数は変更後の value とします。
+   - もし key が存在しない key であれば何も変更せずに第一引数を返すこととします。
+
+   ```js
+   const person = { name: "Satoshi", age: 24 };
+   const result = changeValue(person, age, 25);
    console.log(result); // { name: "Satoshi", age: 25 }
    ```
