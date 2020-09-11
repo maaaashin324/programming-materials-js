@@ -1,27 +1,43 @@
-# for-of-loop
+# 関数を変数に格納する
 
-## for-of-loop の使い方
+関数は変数に格納することもできます。もちろん `function` キーワードを使った関数宣言で関数を作成できるのですが、次回以降扱うクロージャーや高階関数を使うためには、関数を変数に格納することが必要になります。
 
-1. 以下の配列の要素を1つずつ for-of-loop で取り出して、コンソールに表示してください。
+## 従来の関数宣言と、変数に関数を格納したときの違い
 
-   ```js
-   const numbers = [1, 2, 3, 4, 5];
-   // 以下のように1つずつ取り出せれば正解
-   // 1
-   // 2
-   // 3
-   // 4
-   // 5
-   ```
+以下のコードを実行してみてください。
 
-   ```js
-   const numbers = [1, 2, 3, 4, 5];
-   for (const element of numbers) {
-      console.log(element);
-   }
-   ```
+### 関数宣言
+
+```js
+sayHello();
+
+function sayHello() {
+   console.log("Hello");
+}
+```
+
+### 変数に関数を格納
+
+```js
+sayHello();
+
+const sayHello = function() {
+   console.log("Hello");
+}
+```
+
+関数宣言では問題なく動作しますが、変数に関数を格納した場合は以下のエラーが出力されます。
+`ReferenceError: Cannot access 'sayHello' before initialization`
+
+この理由を説明してください。
+
+`Hoisting` が行われています。詳細は[こちら](https://developer.mozilla.org/ja/docs/Glossary/Hoisting)。関数宣言のスタイルでは巻き上げが行われて、関数宣言する前でも使うことができると理解すれば十分です。
 
 ## 問題
+
+以下の問題はすべて、`function` キーワードを使った関数宣言ではなく、変数に関数を格納する形で関数を作成し、実行して結果を確かめてください。
+
+### 関数を変数に格納してから、関数を実行することを忘れないでください
 
 1. `sayHelloToEveryone` という関数を作りましょう。引数は人の名前が入った配列です。全員1人ずつ、`Hello` を付加した挨拶文をコンソールに表示してください。
 
@@ -35,7 +51,7 @@
    ```
 
    ```js
-   function sayHelloToEveryone(arrayOfNames) {
+   const sayHelloToEveryone = function(arrayOfNames) {
       for (const eachName of arrayOfNames) {
          const greeting = "Hello, " + eachName;
          console.log(greeting);
@@ -52,7 +68,7 @@
    ```
 
    ```js
-   function doubleNumbers(arrayOfNumbers) {
+   const doubleNumbers = function(arrayOfNumbers) {
       const result = [];
 
       for (const number of arrayOfNumbers) {
@@ -73,7 +89,7 @@
    ```
 
    ```js
-   function getEvenNumber(arrayOfNumbers) {
+   const getEvenNumber = function(arrayOfNumbers) {
       const result = [];
 
       for (const number of arrayOfNumbers) {
@@ -95,7 +111,7 @@
    ```
 
    ```js
-   function averageNumber(arrayOfNumbers) {
+   const averageNumber = function(arrayOfNumbers) {
       let sum = 0;
 
       for (const number of arrayOfNumbers) {
@@ -120,7 +136,7 @@
    ```
 
    ```js
-   function pickStringFromArray(array) {
+   const pickStringFromArray = function(array) {
       const result = [];
 
       for (const element of array) {

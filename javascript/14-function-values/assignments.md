@@ -1,27 +1,39 @@
-# for-of-loop
+# 関数を変数に格納する
 
-## for-of-loop の使い方
+関数は変数に格納することもできます。もちろん `function` キーワードを使った関数宣言で関数を作成できるのですが、次回以降扱うクロージャーや高階関数を使うためには、関数を変数に格納することが必要になります。
 
-1. 以下の配列の要素を1つずつ for-of-loop で取り出して、コンソールに表示してください。
+## 従来の関数宣言と、変数に関数を格納したときの違い
 
-   ```js
-   const numbers = [1, 2, 3, 4, 5];
-   // 以下のように1つずつ取り出せれば正解
-   // 1
-   // 2
-   // 3
-   // 4
-   // 5
-   ```
+以下のコードを実行してみてください。
 
-   ```js
-   const numbers = [1, 2, 3, 4, 5];
-   for (const element of numbers) {
-      console.log(element);
-   }
-   ```
+### 関数宣言
+
+```js
+sayHello();
+
+function sayHello() {
+   console.log("Hello");
+}
+```
+
+### 変数に関数を格納
+
+```js
+sayHello();
+
+const sayHello = function() {
+   console.log("Hello");
+}
+```
+
+関数宣言では問題なく動作しますが、変数に関数を格納した場合は以下のエラーが出力されます。
+`ReferenceError: Cannot access 'sayHello' before initialization`
+
+この理由を説明してください。
 
 ## 問題
+
+以下の問題はすべて、`function` キーワードを使った関数宣言ではなく、変数に関数を格納する形で関数を作成し、実行して結果を確かめてください。
 
 1. `sayHelloToEveryone` という関数を作りましょう。引数は人の名前が入った配列です。全員1人ずつ、`Hello` を付加した挨拶文をコンソールに表示してください。
 
@@ -34,34 +46,12 @@
    // "Hello, Ai"
    ```
 
-   ```js
-   function sayHelloToEveryone(arrayOfNames) {
-      for (const eachName of arrayOfNames) {
-         const greeting = "Hello, " + eachName;
-         console.log(greeting);
-      }
-   }
-   ```
-
 2. `doubleNumbers` という関数を作りましょう。引数は数値型が入った配列です。全ての数値を2倍した配列を返します。
 
    ```js
    const numbers = [1, 2, 3, 4, 5];
    const result = doubleNumbers(numbers);
    console.log(result); // [2, 4, 6, 8, 10] が出れば正解
-   ```
-
-   ```js
-   function doubleNumbers(arrayOfNumbers) {
-      const result = [];
-
-      for (const number of arrayOfNumbers) {
-         const doubledNumber = number * 2;
-         result.push(doubledNumber);
-      }
-
-      return result;
-   }
    ```
 
 3. `getEvenNumber` という関数を作りましょう。引数は数値型が入った配列です。偶数だけ取り出して新しい配列を返します。
@@ -72,39 +62,12 @@
    console.log(result); // 2, 4
    ```
 
-   ```js
-   function getEvenNumber(arrayOfNumbers) {
-      const result = [];
-
-      for (const number of arrayOfNumbers) {
-         if (number % 2 === 0) {
-            result.push(number);
-         }
-      }
-
-      return result;
-   }
-   ```
-
 4. `averageNumber` という関数を作りましょう。引数は数値型が入った配列です。その配列に入っている数値の平均を返します。
 
    ```js
    const numbers = [1, 2, 3, 4, 5];
    const result = averageNumber(numbers);
    console.log(result); // 3
-   ```
-
-   ```js
-   function averageNumber(arrayOfNumbers) {
-      let sum = 0;
-
-      for (const number of arrayOfNumbers) {
-         sum += number;
-      }
-
-      const average = sum / arrayOfNumbers.length;
-      return average;
-   }
    ```
 
 5. `pickStringFromArray` という関数を作りましょう。
@@ -117,18 +80,4 @@
    const result = pickStringFromArray(testArray);
    console.log(result); // ["Satoshi", "Hello"]
    console.log(testArray); // ["Satoshi", 24, true, "Hello"]
-   ```
-
-   ```js
-   function pickStringFromArray(array) {
-      const result = [];
-
-      for (const element of array) {
-         if (typeof element === "string") {
-            result.push(element);
-         }
-      }
-
-      return result;
-   }
    ```
