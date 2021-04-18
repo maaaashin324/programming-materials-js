@@ -255,8 +255,43 @@
       - 引数は `age` とします
       - その `age` が20以上であれば、`true` を返すし、そうでなければ `false` を返します。
 
-   2. `needUmbrella` という関数を作ってください。
+   ```js
+   function canDrinkAlcohol(age) {
+      if (age >= 20) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+   ```
+
+   ```js
+   // もしくはこの書き方でも良いです
+   function canDrinkAlcohol(age) {
+      if (age >= 20) {
+         return true;
+      }
+      return false;
+   }
+   ```
+
+   1. `needUmbrella` という関数を作ってください。
       - 引数は `weather` とします
       - その `whether` が `sunny` であれば、`no` を返す
       - その `whether` が `cloudy` であれば、`maybe` を返す
       - その `whether` が `rainy` であれば、`yes` を返す
+
+   ```js
+   function needUmbrella(weather) {
+      if (weather === "sunny") {
+         return "no";
+      } else if (weather === "cloudy") {
+         return "maybe";
+      } else if (weather === "rainy") {
+         return "yes";
+      }
+   }
+   // 理想的にはどのパターンにも当てはまらない場合にも
+   // 何かしら返すべきなのですが、現時点では気にせず
+   // この条件分岐が作れることに焦点を当ててみましょう。
+   ```
